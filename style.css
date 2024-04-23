@@ -46,3 +46,11 @@ button{
 .largeBtn{
     width: 320px;
 }
+
+.green{
+    background-color: lightgreen;
+}
+
+.operator{
+    background-color: peachpuff;
+}
