@@ -9,36 +9,50 @@ let num2 = 0;
 let operator = "";
 let displayNum1 = "";
 let displayNum2 = "";
+let total = "";
 
 numberBtn.forEach((numberBtn) => {
     numberBtn.addEventListener("click", () => {
+        if (total !=="" && p.innerText == total){
+            p.innerText = "";
+        }
         p.innerText=p.innerText+numberBtn.id;
-        });
+    });
   });
 
 equalBtn.addEventListener("click", ()=>{
-    secondNum();
-    operate(operator, displayNum1, displayNum2);
+    operate(operator, displayNum1, p.innerText);
 });
 
 function clearScreen(){
     p.innerText = "";
+    displayNum1 = "";
+    displayNum2 = "";
+    operator = "";
+    total = "";
 }
 
 function getOperator(opInput){
+
+
+    if(operator !== "" && displayNum1 !==""){
+        displayNum2 = p.innerText;
+
+        if(total == p.innerText){
+            displayNum1 = p.innerText;
+            operator = opInput;
+            return operator;
+        };
+
+        operate(operator, displayNum1, displayNum2);
+        p.innerText = total;
+    };
+
     displayNum1 = p.innerText;
     operator = opInput;
-
-    p.innerText = "";
-
-    console.log(displayNum1, operator);
-    return displayNum1, operator;
-}
-
-function secondNum(){
-    displayNum2 = p.innerText;
-    console.log(displayNum2);
-    return displayNum2;
+    p.innerText = total;
+    
+    return operator;
 }
 
 function add(num1, num2){
@@ -58,7 +72,6 @@ function divide(num1, num2){
 }
 
 function operate(operator, num1, num2){
-    let total = 0;
     num1 = Number(num1);
     num2 = Number(num2);
     if (operator === "+"){
@@ -71,10 +84,29 @@ function operate(operator, num1, num2){
         total = multiply(num1, num2);
         p.innerText = total;
     } else if(operator==="/"){
-        total = divide(num1, num2);
-        p.innerText = total;
+        if(num2 === 0 || num2 === NaN){
+            p.innerText = "Don't end the universe please...";
+            displayNum1 = "";
+            displayNum2 = "";
+            num1 = "";
+            num2= "";
+            operator = "";
+            total = "";
+        } else {
+            total = divide(num1, num2);
+            p.innerText = total;
+        }
     } else {
         total = "Error: Invalid Operator";
+        displayNum1 = "";
+        displayNum2 = "";
+        num1 = "";
+        num2= "";
+        operator = "";
+        total = "";
+
     }
+
+    console.log(num1, operator, num2, " = ", total);
     return total;
 };
