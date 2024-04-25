@@ -47,6 +47,7 @@ function clearScreen(){
     displayNum2 = "";
     operator = "";
     total = "";
+    decimal.removeAttribute("disabled");
 }
 
 function getOperator(opInput){
