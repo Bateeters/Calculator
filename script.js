@@ -3,6 +3,7 @@ const numberBtn = document.querySelectorAll(".numberBtn");
 const p = document.querySelector("p");
 const clearBtn = document.querySelector("#clear");
 const equalBtn = document.querySelector("#equal");
+const decimal = document.querySelector(".decimal");
 
 let num1 = 0;
 let num2 = 0;
@@ -17,8 +18,16 @@ numberBtn.forEach((numberBtn) => {
             p.innerText = "";
         }
         p.innerText=p.innerText+numberBtn.id;
+
+        if(p.innerText.includes(".") === true){
+            decimal.setAttribute("disabled", true);
+        } else {
+            decimal.removeAttribute("disabled");
+        }
     });
   });
+
+
 
 equalBtn.addEventListener("click", ()=>{
     operate(operator, displayNum1, p.innerText);
