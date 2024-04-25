@@ -4,6 +4,7 @@ const p = document.querySelector("p");
 const clearBtn = document.querySelector("#clear");
 const equalBtn = document.querySelector("#equal");
 const decimal = document.querySelector(".decimal");
+const backBtn = document.querySelector(".back");
 
 let num1 = 0;
 let num2 = 0;
@@ -25,7 +26,14 @@ numberBtn.forEach((numberBtn) => {
             decimal.removeAttribute("disabled");
         }
     });
-  });
+});
+
+
+backBtn.addEventListener("click", () => {
+    let str = p.innerText;
+    str = str.slice(0, -1); 
+    p.innerText = str;
+});
 
 
 
