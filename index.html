@@ -8,25 +8,25 @@
 </head>
 <body>
     <div id="calcBody">
-        <div id="calcScreen"><p></p></div>
+        <div id="calcScreen"><p>0</p></div>
         <div><button class="largeBtn green" onclick="clearScreen()">Clear</button></div>
         <!-- <div><button id="(-)">(-)</button></div> -->
-        <div><button id="/" class="operator">/</button></div>
-        <div><button id="7">7</button></div>
-        <div><button id="8">8</button></div>
-        <div><button id="9">9</button></div>
-        <div><button id="X" class="operator">X</button></div>
-        <div><button id="4">4</button></div>
-        <div><button id="5">5</button></div>
-        <div><button id="6">6</button></div>
-        <div><button id="-" class="operator">-</button></div>
-        <div><button id="1">1</button></div>
-        <div><button id="2">2</button></div>
-        <div><button id="3">3</button></div>
-        <div><button id="+" class="operator">+</button></div>
-        <div><button id="0" class="largeBtn">0</button></div>
+        <div><button id="/" class="operator" onclick="getOperator('/')">/</button></div>
+        <div><button id="7" class="numberBtn">7</button></div>
+        <div><button id="8" class="numberBtn">8</button></div>
+        <div><button id="9" class="numberBtn">9</button></div>
+        <div><button id="X" class="operator" onclick="getOperator('*')">X</button></div>
+        <div><button id="4" class="numberBtn">4</button></div>
+        <div><button id="5" class="numberBtn">5</button></div>
+        <div><button id="6" class="numberBtn">6</button></div>
+        <div><button id="-" class="operator" onclick="getOperator('-')">-</button></div>
+        <div><button id="1" class="numberBtn">1</button></div>
+        <div><button id="2" class="numberBtn">2</button></div>
+        <div><button id="3" class="numberBtn">3</button></div>
+        <div><button id="+" class="operator" onclick="getOperator('+')">+</button></div>
+        <div><button id="0" class="largeBtn numberBtn">0</button></div>
         <!-- <div><button id=".">.</button></div> -->
-        <div><button class="green" id="=">=</button></div>
+        <div><button class="green" id="equal">=</button></div>
     </div>
 
     <script src="script.js"></script>
